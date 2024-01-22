@@ -1,18 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy4a42adtkrao"]
+[gd_scene load_steps=7 format=3 uid="uid://cy4a42adtkrao"]
 
 [ext_resource type="Script" path="res://player.cs" id="1_stilw"]
 [ext_resource type="Material" uid="uid://hcv3hbg3ujhm" path="res://PlayerHead.tres" id="2_hs8o3"]
 [ext_resource type="PackedScene" uid="uid://ch7busnq8o5wr" path="res://Models/Wheel.glb" id="3_q34pm"]
+[ext_resource type="PackedScene" uid="uid://bu0d1fpfpaqwu" path="res://toilet.tscn" id="3_qmirn"]
+[ext_resource type="PackedScene" uid="uid://d0e2ry7osjkik" path="res://cardboard_box.tscn" id="4_vjqhv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68412"]
 size = Vector3(1, 0.5, 1.5)
 
-[node name="Player" type="VehicleBody3D" node_paths=PackedStringArray("label")]
+[node name="Player" type="VehicleBody3D"]
 collision_layer = 2
 collision_mask = 7
 mass = 20.0
 script = ExtResource("1_stilw")
-label = NodePath("PlayerLabel")
+speed = 5000.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_68412")
@@ -24,6 +26,14 @@ size = Vector3(1, 0.5, 1.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.828476)
 size = Vector3(0.8, 0.4, 0.2)
 material = ExtResource("2_hs8o3")
+
+[node name="Toilet" parent="." instance=ExtResource("3_qmirn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
+
+[node name="CardboardBox" parent="." instance=ExtResource("4_vjqhv")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.4, 0)
+visible = false
 
 [node name="FrontRight" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, -0.585678)
@@ -56,14 +66,3 @@ wheel_radius = 0.255
 
 [node name="Wheel" parent="BackLeft" instance=ExtResource("3_q34pm")]
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="PlayerLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.612858, 0)
-pixel_size = 0.0006
-billboard = 1
-fixed_size = true
-modulate = Color(1, 1, 1, 0.509804)
-outline_modulate = Color(0, 0, 0, 0.509804)
-text = "Player {0}"
-font_size = 50
-outline_size = 15
