@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy4a42adtkrao"]
+[gd_scene load_steps=8 format=3 uid="uid://cy4a42adtkrao"]
 
 [ext_resource type="Script" path="res://player.cs" id="1_stilw"]
 [ext_resource type="Material" uid="uid://hcv3hbg3ujhm" path="res://PlayerHead.tres" id="2_hs8o3"]
 [ext_resource type="PackedScene" uid="uid://ch7busnq8o5wr" path="res://Models/Wheel.glb" id="3_q34pm"]
 [ext_resource type="PackedScene" uid="uid://bu0d1fpfpaqwu" path="res://toilet.tscn" id="3_qmirn"]
 [ext_resource type="PackedScene" uid="uid://d0e2ry7osjkik" path="res://cardboard_box.tscn" id="4_vjqhv"]
+[ext_resource type="PackedScene" uid="uid://bbwy026vy747q" path="res://RiggedDude.tscn" id="5_n8jme"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68412"]
 size = Vector3(1, 0.5, 1.5)
@@ -35,6 +36,10 @@ visible = false
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.4, 0)
 visible = false
 
+[node name="WeirdDude" parent="." instance=ExtResource("5_n8jme")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0678642, 0)
+visible = false
+
 [node name="FrontRight" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, -0.585678)
 use_as_steering = true
@@ -44,7 +49,7 @@ wheel_radius = 0.255
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="BackRight" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, 0.507886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532, -0.164, 0.586)
 use_as_traction = true
 wheel_radius = 0.255
 
@@ -60,7 +65,7 @@ wheel_radius = 0.255
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="BackLeft" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, 0.508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, 0.586)
 use_as_traction = true
 wheel_radius = 0.255
 
