@@ -1,12 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy4a42adtkrao"]
+[gd_scene load_steps=5 format=3 uid="uid://cy4a42adtkrao"]
 
-[ext_resource type="Script" path="res://player.cs" id="1_stilw"]
-[ext_resource type="Material" uid="uid://hcv3hbg3ujhm" path="res://PlayerHead.tres" id="2_hs8o3"]
+[ext_resource type="Script" path="res://Scripts/player.cs" id="1_stilw"]
+[ext_resource type="Material" uid="uid://hcv3hbg3ujhm" path="res://Game Objects/PlayerHead.tres" id="2_hs8o3"]
 [ext_resource type="PackedScene" uid="uid://ch7busnq8o5wr" path="res://Models/Wheel.glb" id="3_q34pm"]
-[ext_resource type="PackedScene" uid="uid://bu0d1fpfpaqwu" path="res://toilet.tscn" id="3_qmirn"]
-[ext_resource type="PackedScene" uid="uid://d0e2ry7osjkik" path="res://cardboard_box.tscn" id="4_vjqhv"]
-[ext_resource type="PackedScene" uid="uid://bbwy026vy747q" path="res://RiggedDude.tscn" id="5_n8jme"]
-[ext_resource type="PackedScene" uid="uid://dsd631ol6y6b6" path="res://CheeseWheel.tscn" id="6_b58xu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68412"]
 size = Vector3(1, 0.5, 1.5)
@@ -28,22 +24,6 @@ size = Vector3(1, 0.5, 1.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.828476)
 size = Vector3(0.8, 0.4, 0.2)
 material = ExtResource("2_hs8o3")
-
-[node name="Toilet" parent="." instance=ExtResource("3_qmirn")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.145, 0)
-visible = false
-
-[node name="CardboardBox" parent="." instance=ExtResource("4_vjqhv")]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.4, 0)
-visible = false
-
-[node name="WeirdDude" parent="." instance=ExtResource("5_n8jme")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0678642, 0)
-visible = false
-
-[node name="CheeseWheel2" parent="." instance=ExtResource("6_b58xu")]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
-visible = false
 
 [node name="FrontRight" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, -0.585678)

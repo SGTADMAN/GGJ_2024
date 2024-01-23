@@ -1,23 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsd631ol6y6b6"]
+[gd_scene load_steps=13 format=3 uid="uid://dsd631ol6y6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tsoieexqforp" path="res://Models/CheeseWheel_Cheese_Diffuse.png" id="1_jp72u"]
-[ext_resource type="Texture2D" uid="uid://bpnib3i2teuxp" path="res://Models/CheeseWheel_Cheese_Metallic-Cheese_Roughness.png" id="2_q47ii"]
-[ext_resource type="Texture2D" uid="uid://bgo5ij8lunxv" path="res://Models/CheeseWheel_Cheese_Normal.png" id="3_j8130"]
+[ext_resource type="Texture2D" uid="uid://skeedfb7y0v8" path="res://Textures/Cheese_Metallic.png" id="2_nkn72"]
+[ext_resource type="Texture2D" uid="uid://diobufcltlarw" path="res://Textures/Cheese_Normal.png" id="3_dw7aa"]
+[ext_resource type="Texture2D" uid="uid://c5ly4uo1sw10n" path="res://Textures/Cheese_Roughness.png" id="4_dssjo"]
 [ext_resource type="Texture2D" uid="uid://cd1sbh0kelojd" path="res://Models/CheeseWheel_Wood_Diffuse.png" id="4_gepwg"]
-[ext_resource type="Texture2D" uid="uid://dm00dra0mowe2" path="res://Models/CheeseWheel_Wood_Metallic-Wood_Roughness.png" id="5_ix7fg"]
-[ext_resource type="Texture2D" uid="uid://dfkhge2b7ad4d" path="res://Models/CheeseWheel_Wood_Normal.png" id="6_mpl34"]
+[ext_resource type="Texture2D" uid="uid://cwfduif5mc70" path="res://Textures/Wood_Metallic.png" id="6_jqfth"]
+[ext_resource type="Texture2D" uid="uid://bttyw3opl1cvt" path="res://Textures/Wood_Normal.png" id="7_5nhxl"]
+[ext_resource type="Texture2D" uid="uid://o60hbmmd1oje" path="res://Textures/Wood_Roughness.png" id="8_eejpe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04gl3"]
 resource_name = "CheeseTextured"
 cull_mode = 2
 albedo_texture = ExtResource("1_jp72u")
-metallic = 1.0
-metallic_texture = ExtResource("2_q47ii")
+metallic_texture = ExtResource("2_nkn72")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("2_q47ii")
-roughness_texture_channel = 1
+roughness_texture = ExtResource("4_dssjo")
+roughness_texture_channel = 4
 normal_enabled = true
-normal_texture = ExtResource("3_j8130")
+normal_texture = ExtResource("3_dw7aa")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5uawy"]
 resource_name = "CheeseWheel_CheeseWheel"
@@ -40,13 +41,12 @@ blend_shape_mode = 0
 resource_name = "WoodTextured"
 cull_mode = 2
 albedo_texture = ExtResource("4_gepwg")
-metallic = 1.0
-metallic_texture = ExtResource("5_ix7fg")
+metallic_texture = ExtResource("6_jqfth")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("5_ix7fg")
-roughness_texture_channel = 1
+roughness_texture = ExtResource("8_eejpe")
+roughness_texture_channel = 4
 normal_enabled = true
-normal_texture = ExtResource("6_mpl34")
+normal_texture = ExtResource("7_5nhxl")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c2vnc"]
 resource_name = "CheeseWheel_Cube"
@@ -75,7 +75,7 @@ mesh = SubResource("ArrayMesh_5uawy")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_c2vnc")
 skeleton = NodePath("")

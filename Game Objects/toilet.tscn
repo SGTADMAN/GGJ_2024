@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://crrh7864t8pnc" path="res://Models/Toilet_Lid.glb" id="3_77kqr"]
 
 [node name="Toilet" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Toilet_Body" parent="." instance=ExtResource("1_4ano7")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ToiletSeat" parent="." instance=ExtResource("2_bcipe")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="ToiletLid" parent="." instance=ExtResource("3_77kqr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[editable path="Toilet_Body"]
+[editable path="ToiletSeat"]
