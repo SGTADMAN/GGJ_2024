@@ -1,20 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0e2ry7osjkik"]
+[gd_scene load_steps=12 format=3 uid="uid://d0e2ry7osjkik"]
 
 [ext_resource type="Texture2D" uid="uid://ddv1mpucn5aq3" path="res://Models/CardboardBox_CardboardBox_Diffuse.png" id="1_0jajc"]
-[ext_resource type="Texture2D" uid="uid://bn8t24nlc1cic" path="res://Models/CardboardBox_CardboardBox_Metallic-CardboardBox_Roughness.png" id="2_6ykgt"]
-[ext_resource type="Texture2D" uid="uid://dg57s3ke3wrwh" path="res://Models/CardboardBox_CardboardBox_Normal.png" id="3_vyso6"]
+[ext_resource type="Texture2D" uid="uid://cqp1ingki5ssv" path="res://Textures/CardboardBox_AO.png" id="2_28npa"]
+[ext_resource type="Texture2D" uid="uid://ddc6mn1h73np8" path="res://Textures/CardboardBox_Metallic.png" id="3_6idxg"]
+[ext_resource type="Texture2D" uid="uid://bntwv51kkdspe" path="res://Textures/CardboardBox_Normal.png" id="4_bevbh"]
+[ext_resource type="Texture2D" uid="uid://bcrqriur1u2u2" path="res://Textures/CardboardBox_Roughness.png" id="5_14ly0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76mnh"]
 resource_name = "CardboardTextured"
 cull_mode = 2
 albedo_texture = ExtResource("1_0jajc")
 metallic = 1.0
-metallic_texture = ExtResource("2_6ykgt")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("2_6ykgt")
-roughness_texture_channel = 1
+metallic_texture = ExtResource("3_6idxg")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_14ly0")
+roughness_texture_channel = 4
 normal_enabled = true
-normal_texture = ExtResource("3_vyso6")
+normal_texture = ExtResource("4_bevbh")
+ao_enabled = true
+ao_texture = ExtResource("2_28npa")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lh38s"]
 resource_name = "CardboardBox_Cube_001"
@@ -102,7 +106,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="CardboardBox" type="Node3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 1, 0)
 
 [node name="Box" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

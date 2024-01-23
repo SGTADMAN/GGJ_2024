@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_stilw"]
 [ext_resource type="Material" uid="uid://hcv3hbg3ujhm" path="res://Game Objects/PlayerHead.tres" id="2_hs8o3"]
-[ext_resource type="PackedScene" uid="uid://ch7busnq8o5wr" path="res://Models/Wheel.glb" id="3_q34pm"]
+[ext_resource type="PackedScene" uid="uid://xhrhi53htcp8" path="res://Game Objects/Wheel.tscn" id="3_embb7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68412"]
-size = Vector3(1, 0.5, 1.5)
+size = Vector3(0.922241, 0.414917, 1.79333)
 
 [node name="Player" type="VehicleBody3D"]
 collision_layer = 2
@@ -30,29 +30,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, -0.585678
 use_as_steering = true
 wheel_radius = 0.255
 
-[node name="Wheel" parent="FrontRight" instance=ExtResource("3_q34pm")]
-transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="Wheel" parent="FrontRight" instance=ExtResource("3_embb7")]
 
 [node name="BackRight" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532, -0.164, 0.586)
 use_as_traction = true
 wheel_radius = 0.255
 
-[node name="Wheel" parent="BackRight" instance=ExtResource("3_q34pm")]
-transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="Wheel" parent="BackRight" instance=ExtResource("3_embb7")]
 
 [node name="FrontLeft" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, -0.586)
 use_as_steering = true
 wheel_radius = 0.255
 
-[node name="Wheel" parent="FrontLeft" instance=ExtResource("3_q34pm")]
-transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="Wheel" parent="FrontLeft" instance=ExtResource("3_embb7")]
 
 [node name="BackLeft" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, 0.586)
 use_as_traction = true
 wheel_radius = 0.255
 
-[node name="Wheel" parent="BackLeft" instance=ExtResource("3_q34pm")]
-transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
+[node name="Wheel" parent="BackLeft" instance=ExtResource("3_embb7")]

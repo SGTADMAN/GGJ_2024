@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=9 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="Texture2D" uid="uid://cxbh0hk4cxuw8" path="res://Textures/Cyberground_Normal.png" id="1_mcnju"]
+[ext_resource type="PackedScene" uid="uid://kmbmqah4ym84" path="res://Game Objects/player_cheese.tscn" id="2_4q1ny"]
 [ext_resource type="PackedScene" uid="uid://cy4a42adtkrao" path="res://Game Objects/player.tscn" id="2_e4qf0"]
 [ext_resource type="Script" path="res://Scripts/CamScript.cs" id="3_j3i0v"]
 [ext_resource type="Script" path="res://Scripts/PlayerLabels.cs" id="4_2qm81"]
@@ -63,8 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 0.636078, 0.771625, 0, -0.771625, 0.636078, 
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player0" parent="Players" instance=ExtResource("2_e4qf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73, 0)
+[node name="Player" parent="Players" instance=ExtResource("2_4q1ny")]
 
 [node name="Player1" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92554, 0.710281, 0.862505)
@@ -73,12 +73,12 @@ playerNo = 1
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.630676, 0.776046, 0, -0.776046, 0.630676, 0, 7, 10)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" node_paths=PackedStringArray("players")]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" node_paths=PackedStringArray("playerContainer")]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 keep_aspect = 0
 fov = 90.0
 script = ExtResource("3_j3i0v")
-players = [NodePath("../../Players/Player0"), NodePath("../../Players/Player1")]
+playerContainer = NodePath("../../Players")
 minDist = 200.0
 maxDist = 1000.0
 
@@ -88,5 +88,4 @@ playerNames = []
 playersContainer = NodePath("../Players")
 camera = NodePath("../CameraPivot/Camera3D")
 
-[editable path="Players/Player0"]
 [editable path="Players/Player1"]

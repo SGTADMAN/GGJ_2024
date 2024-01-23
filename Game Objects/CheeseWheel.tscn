@@ -14,7 +14,7 @@ resource_name = "CheeseTextured"
 cull_mode = 2
 albedo_texture = ExtResource("1_jp72u")
 metallic_texture = ExtResource("2_nkn72")
-metallic_texture_channel = 2
+metallic_texture_channel = 4
 roughness_texture = ExtResource("4_dssjo")
 roughness_texture_channel = 4
 normal_enabled = true
@@ -66,7 +66,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="CheeseWheel2" type="Node3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
 
 [node name="CheeseWheel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

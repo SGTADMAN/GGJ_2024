@@ -4,7 +4,8 @@ using System;
 public partial class CamScript : Camera3D
 {
 	[Export]
-	public Node3D[] players;
+	public Node playerContainer { get; set; }
+	Node3D[] players;
 	[Export]
 	public float minFOV { get; set; } = 60f;
 	[Export]
@@ -17,7 +18,11 @@ public partial class CamScript : Camera3D
     public float maxDist { get; set; } = 40f;
     public override void _Ready()
 	{
-
+		players = new Node3D[playerContainer.GetChildCount()];
+		for (int i = 0; i < players.Length; i++)
+		{
+			players[i] = (Node3D)playerContainer.GetChild(i);
+		}
 	}
 
 	public override void _Process(double delta)
