@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bko6uksvyd1b"]
+
+[ext_resource type="Script" path="res://Scripts/player.cs" id="1_3k6w2"]
+[ext_resource type="PackedScene" uid="uid://bu0d1fpfpaqwu" path="res://Game Objects/toilet.tscn" id="1_e1a1p"]
+[ext_resource type="PackedScene" uid="uid://xhrhi53htcp8" path="res://Game Objects/Wheel.tscn" id="3_jhsd8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dfwvm"]
+size = Vector3(0.733887, 1.50537, 1.29791)
+
+[node name="Toilet" type="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.400685, 0)
+mass = 20.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.2, 0)
+script = ExtResource("1_3k6w2")
+speed = 5000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 0.502686, 0.186127)
+shape = SubResource("BoxShape3D_dfwvm")
+
+[node name="Toilet" parent="." instance=ExtResource("1_e1a1p")]
+
+[node name="FrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53188, -0.164283, -0.585678)
+use_as_steering = true
+wheel_radius = 0.255
+
+[node name="Wheel" parent="FrontRight" instance=ExtResource("3_jhsd8")]
+
+[node name="BackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.532, -0.164, 0.586)
+use_as_traction = true
+wheel_radius = 0.255
+
+[node name="Wheel" parent="BackRight" instance=ExtResource("3_jhsd8")]
+
+[node name="FrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, -0.586)
+use_as_steering = true
+wheel_radius = 0.255
+
+[node name="Wheel" parent="FrontLeft" instance=ExtResource("3_jhsd8")]
+
+[node name="BackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532, -0.164, 0.586)
+use_as_traction = true
+wheel_radius = 0.255
+
+[node name="Wheel" parent="BackLeft" instance=ExtResource("3_jhsd8")]

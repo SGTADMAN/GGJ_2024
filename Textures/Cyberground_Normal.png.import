@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxbh0hk4cxuw8"
-path.s3tc="res://.godot/imported/Cyberground_Normal.png-ad3ca1e0349e107676a0c5e012a2f25c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cyberground_Normal.png-d6387f18612d673f9612dc1268547225.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Cyberground_Normal.png"
-dest_files=["res://.godot/imported/Cyberground_Normal.png-ad3ca1e0349e107676a0c5e012a2f25c.s3tc.ctex"]
+source_file="res://Textures/Cyberground_Normal.png"
+dest_files=["res://.godot/imported/Cyberground_Normal.png-d6387f18612d673f9612dc1268547225.s3tc.ctex"]
 
 [params]
 

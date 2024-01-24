@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu0d1fpfpaqwu"]
+
+[ext_resource type="PackedScene" uid="uid://lh0vc7qt2ae7" path="res://Game Objects/Toilet_Main.tscn" id="1_3jsx3"]
+[ext_resource type="PackedScene" uid="uid://bv4axlk13bn6h" path="res://Game Objects/Toilet_Seat.tscn" id="2_bcmij"]
+[ext_resource type="PackedScene" uid="uid://dh20f6qvhinhr" path="res://Game Objects/Toilet_Lid.tscn" id="3_753s8"]
+
+[node name="Toilet" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Toilet_Body" parent="." instance=ExtResource("1_3jsx3")]
+
+[node name="ToiletSeat" parent="." instance=ExtResource("2_bcmij")]
+
+[node name="ToiletLid" parent="." instance=ExtResource("3_753s8")]

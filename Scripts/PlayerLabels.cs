@@ -15,11 +15,10 @@ public partial class PlayerLabels : Node
         playerNames = new Label[playersContainer.GetChildCount()];
         for (int i = 0; i < playerNames.Length; i++)
         {
-            Label label = new Label();
-            label.Text = string.Format("Player " + (playersContainer.GetChild<player>(i).playerNo + 1));
-            label.HorizontalAlignment = HorizontalAlignment.Center;
-            label.VerticalAlignment = VerticalAlignment.Center;
-            playerNames[i] = label;
+            var scene = GD.Load<PackedScene>("res://Game Objects/player_label.tscn");
+            var instance = scene.Instantiate();
+            playerNames[i] = (Label)instance;
+            playerNames[i].Text = string.Format("Player " + (playersContainer.GetChild<player>(i).playerNo + 1));
             playerNames[i].Name = "Player" + i + "Label";
             AddChild(playerNames[i]);
         }        
