@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu0d1fpfpaqwu"]
+[gd_scene load_steps=5 format=3 uid="uid://bu0d1fpfpaqwu"]
 
 [ext_resource type="PackedScene" uid="uid://lh0vc7qt2ae7" path="res://Game Objects/Toilet_Main.tscn" id="1_3jsx3"]
 [ext_resource type="PackedScene" uid="uid://bv4axlk13bn6h" path="res://Game Objects/Toilet_Seat.tscn" id="2_bcmij"]
 [ext_resource type="PackedScene" uid="uid://dh20f6qvhinhr" path="res://Game Objects/Toilet_Lid.tscn" id="3_753s8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ayd1j"]
+points = PackedVector3Array(0.879466, 1.24256, -0.372302, 0.8796, 1.24244, 0.372242, 0.879466, 1.21252, -0.372302, -6.1512e-05, 0.649984, -0.3762, 0.459463, 1.24256, -0.372302, 0.8796, 1.21252, 0.372242, 0.459463, 1.24244, 0.372242, 0.438563, 1.18503, 0.453363, 0.869552, 0.712502, -0.3546, -6.1512e-05, 0.599995, -0.3762, -0.187221, 0.649984, -0.347617, -0.345844, 0.649984, -0.26609, -0.45195, 0.649984, -0.144043, -0.48906, 0.649984, -7.07805e-05, 0.869552, 0.712502, 0.354459, 0.438563, 1.16861, 0.453363, -0.45195, 0.649984, 0.143901, 0.407482, 1.18503, 0.453363, 0.299902, 0, -7.07805e-05, 0.277127, 0, -0.11481, 0.164724, 0, -0.300032, -0.164847, 0, -0.300032, -0.187221, 0.599995, -0.347617, -0.345844, 0.599995, -0.26609, -0.45195, 0.599995, -0.144043, -0.48906, 0.599995, -7.07805e-05, 0.277127, 0, 0.114749, 0.164724, 0, 0.299972, 0.407482, 1.16861, 0.453363, -0.45195, 0.599995, 0.143901, -0.345844, 0.649984, 0.265948, -0.187221, 0.649984, 0.347475, -0.27725, 0, -0.11481, -0.300025, 0, -7.07805e-05, -0.27725, 0, 0.114749, -0.164847, 0, 0.299972, -0.187221, 0.599995, 0.347475, -6.1512e-05, 0.599995, 0.37614, -0.345844, 0.599995, 0.265948)
 
 [node name="Toilet" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -12,3 +15,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="ToiletSeat" parent="." instance=ExtResource("2_bcmij")]
 
 [node name="ToiletLid" parent="." instance=ExtResource("3_753s8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_ayd1j")

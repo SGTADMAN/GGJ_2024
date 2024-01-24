@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=10 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="Texture2D" uid="uid://cxbh0hk4cxuw8" path="res://Textures/Cyberground_Normal.png" id="1_mcnju"]
 [ext_resource type="PackedScene" uid="uid://kmbmqah4ym84" path="res://Game Objects/player_cheese.tscn" id="2_4q1ny"]
 [ext_resource type="PackedScene" uid="uid://cy4a42adtkrao" path="res://Game Objects/player.tscn" id="2_e4qf0"]
+[ext_resource type="PackedScene" uid="uid://cjsx0cnlugv2o" path="res://Alex Scenes/A_Player.tscn" id="2_txmvj"]
 [ext_resource type="Script" path="res://Scripts/CamScript.cs" id="3_j3i0v"]
 [ext_resource type="Script" path="res://Scripts/PlayerLabels.cs" id="4_2qm81"]
 
@@ -88,4 +89,11 @@ playerNames = []
 playersContainer = NodePath("../Players")
 camera = NodePath("../CameraPivot/Camera3D")
 
-[editable path="Players/Player1"]
+[node name="Player" parent="." instance=ExtResource("2_txmvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+model = 2
+activate_input = true
+
+[node name="Player2" parent="." instance=ExtResource("2_txmvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -3)
+model = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbwy026vy747q"]
+[gd_scene load_steps=15 format=3 uid="uid://bbwy026vy747q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqso4"]
 
@@ -1909,6 +1909,9 @@ _data = {
 "Wave": SubResource("Animation_f8tuo")
 }
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cby8i"]
+points = PackedVector3Array(-0.65, -0.1, -0.3, -0.65, 0.1, -0.3, 0.65, -0.1, -0.3, -0.65, -0.1, 0.3, -0.65, 0.1, 0.3, 0.65, 0.1, -0.3, 0.65, -0.1, 0.3, 0.65, 0.1, 0.3, -0.5, 0.5, -0.15, -0.5, 0.5, 0.15, 0.85, 0.6, -0.05, 0.85, 0.6, 0.05, 0.97, 0.37, 0.05, 0.97, 0.37, -0.05)
+
 [node name="WeirdDude" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
@@ -1921,7 +1924,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 4.44089e-15, 2.38493e-07, 1.68427e-08, 0.997503, -0.0706214, -2.37898e-07, 0.0706214, 0.997503, 0, 1.39375, -0.0857269)
 bones/0/enabled = true
 bones/0/position = Vector3(2.28393e-08, 0.518797, -0.336549)
-bones/0/rotation = Quaternion(0.707066, 4.88796e-08, 1.05237e-07, 0.707148)
+bones/0/rotation = Quaternion(0.707065, 4.88796e-08, 1.05237e-07, 0.707148)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "DEF-spine.001"
 bones/1/parent = 0
@@ -2243,7 +2246,7 @@ bones/46/parent = 45
 bones/46/rest = Transform3D(0.999812, -0.0193759, 1.92085e-09, 0.0193325, 0.997573, -0.0668944, 0.00129614, 0.0668819, 0.99776, -1.08033e-07, 0.054776, -1.67638e-08)
 bones/46/enabled = true
 bones/46/position = Vector3(-1.08033e-07, 0.054776, -1.67638e-08)
-bones/46/rotation = Quaternion(0.0882884, 0.116231, 0.427587, 0.892112)
+bones/46/rotation = Quaternion(0.0882884, 0.116231, 0.427587, 0.892113)
 bones/46/scale = Vector3(1.08655, 1.05459, 1.00053)
 bones/47/name = "DEF-f_ring.03.R"
 bones/47/parent = 46
@@ -2362,3 +2365,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_c11q7")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
+shape = SubResource("ConvexPolygonShape3D_cby8i")

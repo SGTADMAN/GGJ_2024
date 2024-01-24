@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0e2ry7osjkik"]
+[gd_scene load_steps=13 format=3 uid="uid://d0e2ry7osjkik"]
 
 [ext_resource type="Texture2D" uid="uid://ddv1mpucn5aq3" path="res://Models/CardboardBox_CardboardBox_Diffuse.png" id="1_0jajc"]
 [ext_resource type="Texture2D" uid="uid://cqp1ingki5ssv" path="res://Textures/CardboardBox_AO.png" id="2_28npa"]
@@ -105,6 +105,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rbagt"]
+points = PackedVector3Array(1.57583, 2, 0.999979, 1.57583, -5.96046e-08, 0.999979, 1.57583, 2, -1, -1.57582, 2, 0.999979, 1.57583, -5.96046e-08, -1, -1.57582, -5.96046e-08, 0.999979, -1.57582, 2, -1, -1.57582, -5.96046e-08, -1)
+
 [node name="CardboardBox" type="Node3D"]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 1, 0)
 
@@ -132,3 +135,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, -0.195829, -0.980638, 0, 0.980638, -0.195829, 0, 1, 0.98)
 mesh = SubResource("ArrayMesh_fbdqi")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("ConvexPolygonShape3D_rbagt")

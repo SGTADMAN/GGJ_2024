@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsd631ol6y6b6"]
+[gd_scene load_steps=14 format=3 uid="uid://dsd631ol6y6b6"]
 
 [ext_resource type="Texture2D" uid="uid://tsoieexqforp" path="res://Models/CheeseWheel_Cheese_Diffuse.png" id="1_jp72u"]
 [ext_resource type="Texture2D" uid="uid://skeedfb7y0v8" path="res://Textures/Cheese_Metallic.png" id="2_nkn72"]
@@ -65,6 +65,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6tnfs"]
+points = PackedVector3Array(-1, -0.1, -1, -1, 0.1, -1, 1, -0.1, -1, -1, -0.1, 0.999979, -1, 0.1, 0.999979, 1, 0.1, -1, 1, -0.1, 0.999979, 1, 0.1, 0.999979, 1, 0.7, 0, 0, 0.7, 0, -1, 0.7, 0, 0, 0.7, 0.55, 0, 0.7, -0.55)
+
 [node name="CheeseWheel2" type="Node3D"]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
 
@@ -79,3 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_c2vnc")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
+shape = SubResource("ConvexPolygonShape3D_6tnfs")
