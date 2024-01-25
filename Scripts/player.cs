@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class player : VehicleBody3D
 {
@@ -13,11 +14,15 @@ public partial class player : VehicleBody3D
     [Export]
     public modelType model { get; set; }
 
+    public float playerHealth = 100f;
+
     public override void _Ready()
     {
         var model_string = "res://Game Objects/" + model.ToString() + ".tscn";
         AddChild(GD.Load<PackedScene>(model_string).Instantiate());
         (GetChild(-1).GetChild(-1)).Reparent(this);
+
+        
     }
     public override void _PhysicsProcess(double delta)
     {
@@ -30,6 +35,15 @@ public partial class player : VehicleBody3D
         {
             EngineForce = (-Input.GetAxis("p" + (playerNo + 1) + "_Backward", "p" + (playerNo + 1) + "_Forward")) * speed * (float)delta;
             Steering = (-Input.GetAxis("p" + (playerNo + 1) + "_Left", "p" + (playerNo + 1) + "_Right")) * turnSpeed * (float)delta;
+        }
+
+        Node3D[] cols = GetCollidingBodies().ToArray();
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].Name.ToString().Contains("Player"))
+            {
+                
+            }                
         }
     }
 }

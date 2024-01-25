@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=19 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
 [ext_resource type="Texture2D" uid="uid://dvuc1tjjxloke" path="res://Textures/Fence_Diffuse.png" id="2_7njif"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/PlayerLabels.cs" id="4_2qm81"]
 [ext_resource type="Texture2D" uid="uid://ckxpsmkeyke6y" path="res://Textures/Fence_Normal.png" id="4_y4k40"]
 [ext_resource type="Texture2D" uid="uid://qpdd2jtvxmvc" path="res://Textures/Fence_Roughness.png" id="5_kfwdr"]
+[ext_resource type="Script" path="res://Scenes/HealthBars.cs" id="9_3kuua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwqc2"]
 size = Vector3(20, 5, 1)
@@ -38,60 +39,74 @@ ssao_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
 
+[sub_resource type="Gradient" id="Gradient_mtn6f"]
+colors = PackedColorArray(100, 0, 0, 1, 100, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xm41u"]
+gradient = SubResource("Gradient_mtn6f")
+width = 384
+
+[sub_resource type="Gradient" id="Gradient_xkw4o"]
+colors = PackedColorArray(0, 100, 0, 1, 0, 100, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rklo0"]
+gradient = SubResource("Gradient_xkw4o")
+width = 384
+
 [node name="MainGame" type="Node"]
 
-[node name="Arena2" parent="." instance=ExtResource("1_0k3oi")]
+[node name="Arena" parent="." instance=ExtResource("1_0k3oi")]
 
-[node name="Walls" type="Node3D" parent="Arena2"]
+[node name="Walls" type="Node3D" parent="Arena"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Wall" type="StaticBody3D" parent="Arena2/Walls"]
+[node name="Wall" type="StaticBody3D" parent="Arena/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena2/Walls/Wall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Walls/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_qwqc2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena2/Walls/Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Walls/Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0)
 mesh = SubResource("PlaneMesh_vpwpk")
 
-[node name="Wall2" type="StaticBody3D" parent="Arena2/Walls"]
+[node name="Wall2" type="StaticBody3D" parent="Arena/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena2/Walls/Wall2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Walls/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_yqgjn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena2/Walls/Wall2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Walls/Wall2"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 2, 0)
 mesh = SubResource("PlaneMesh_vpwpk")
 
-[node name="Wall3" type="StaticBody3D" parent="Arena2/Walls"]
+[node name="Wall3" type="StaticBody3D" parent="Arena/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena2/Walls/Wall3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Walls/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_yqgjn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena2/Walls/Wall3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Walls/Wall3"]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 2, 0)
 mesh = SubResource("PlaneMesh_vpwpk")
 skeleton = NodePath("../..")
 
-[node name="Wall4" type="StaticBody3D" parent="Arena2/Walls"]
+[node name="Wall4" type="StaticBody3D" parent="Arena/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena2/Walls/Wall4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Walls/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_qwqc2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena2/Walls/Wall4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Walls/Wall4"]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 2, 0)
 mesh = SubResource("PlaneMesh_vpwpk")
 
 [node name="Light" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.636078, 0.771625, 0, -0.771625, 0.636078, 0, 4.40908, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.40908, 0)
 
 [node name="Players" type="Node" parent="."]
 
@@ -116,8 +131,48 @@ playerContainer = NodePath("../../Players")
 minDist = 200.0
 maxDist = 1000.0
 
-[node name="Labels" type="Node" parent="." node_paths=PackedStringArray("playerNames", "playersContainer", "camera")]
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="Control" parent="GameUI" node_paths=PackedStringArray("playerNames", "playersContainer", "camera")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("4_2qm81")
 playerNames = []
-playersContainer = NodePath("../Players")
-camera = NodePath("../CameraPivot/Camera3D")
+playersContainer = NodePath("../../Players")
+camera = NodePath("../../CameraPivot/Camera3D")
+
+[node name="HealthBars" type="Control" parent="GameUI" node_paths=PackedStringArray("playerContainer")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_3kuua")
+playerContainer = NodePath("../../Players")
+
+[node name="Player1" type="TextureProgressBar" parent="GameUI/HealthBars"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 971.0
+offset_right = 522.0
+offset_bottom = 1035.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_xm41u")
+texture_progress = SubResource("GradientTexture2D_rklo0")
+
+[node name="Player2" type="TextureProgressBar" parent="GameUI/HealthBars"]
+layout_mode = 0
+offset_left = 1398.0
+offset_top = 971.0
+offset_right = 1782.0
+offset_bottom = 1035.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_xm41u")
+texture_progress = SubResource("GradientTexture2D_rklo0")
