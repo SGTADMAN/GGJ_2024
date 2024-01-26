@@ -109,7 +109,7 @@ blend_shape_mode = 0
 points = PackedVector3Array(1.57583, 2, 0.999979, 1.57583, -5.96046e-08, 0.999979, 1.57583, 2, -1, -1.57582, 2, 0.999979, 1.57583, -5.96046e-08, -1, -1.57582, -5.96046e-08, 0.999979, -1.57582, 2, -1, -1.57582, -5.96046e-08, -1)
 
 [node name="CardboardBox" type="Node3D"]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.2, 0)
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.3, 0)
 
 [node name="Box" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

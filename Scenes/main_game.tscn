@@ -112,11 +112,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.4
 
 [node name="Player0" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(0.75471, 0, -0.656059, 0, 1, 0, 0.656059, 0, 0.75471, -5.02504, 0.921962, 5.72332)
+model = 2
 
 [node name="Player1" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(-0.608761, 0, 0.793353, 0, 1, 0, -0.793353, 0, -0.608761, 5.25848, 0.710281, -4.27473)
 playerNo = 1
-model = 2
+model = 1
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.630676, 0.776046, 0, -0.776046, 0.630676, 0, 7, 10)

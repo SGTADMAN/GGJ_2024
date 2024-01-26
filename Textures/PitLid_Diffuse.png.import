@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rja55y0aatbh"
-path.s3tc="res://.godot/imported/Wood_Diffuse.png-b6d7b7ff06affebc2ddd75f1cf5d4d1a.s3tc.ctex"
+uid="uid://b8oqsmusts4vu"
+path="res://.godot/imported/PitLid_Diffuse.png-ac404a6fdb5aa5f08301e30c1aafa27c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Wood_Diffuse.png"
-dest_files=["res://.godot/imported/Wood_Diffuse.png-b6d7b7ff06affebc2ddd75f1cf5d4d1a.s3tc.ctex"]
+source_file="res://Textures/PitLid_Diffuse.png"
+dest_files=["res://.godot/imported/PitLid_Diffuse.png-ac404a6fdb5aa5f08301e30c1aafa27c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

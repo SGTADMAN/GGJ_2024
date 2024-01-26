@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://24uiw07btwox"]
+[gd_scene load_steps=15 format=3 uid="uid://24uiw07btwox"]
 
 [ext_resource type="Texture2D" uid="uid://d0d2ucy5l2jaf" path="res://Models/Arena_Arena_Diffuse.png" id="1_pojmp"]
 [ext_resource type="Texture2D" uid="uid://djpjjsakke0gw" path="res://Textures/Arena_Metallic.png" id="2_o04an"]
 [ext_resource type="Texture2D" uid="uid://x0jhgkm5w4qn" path="res://Textures/Arena_Normal.png" id="3_it5x8"]
 [ext_resource type="Texture2D" uid="uid://bttf1ycaf8cye" path="res://Textures/Arena_Roughness.png" id="4_gfxvc"]
+[ext_resource type="PackedScene" uid="uid://cayt5a0qdys6x" path="res://Game Objects/Arena_Pit.tscn" id="5_byp4q"]
+[ext_resource type="Texture2D" uid="uid://badcaslr8vkxg" path="res://Textures/PitLid_Normal.png" id="6_tv0s8"]
+[ext_resource type="Texture2D" uid="uid://qhhcaf315dgl" path="res://Textures/PitLid_Roughness.png" id="7_qilea"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp6xw"]
 resource_name = "ArenaTextured"
@@ -53,6 +56,23 @@ shadow_mesh = SubResource("ArrayMesh_cs4oi")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5dxpp"]
 data = PackedVector3Array(6.94, 0, -6.4962, 10, 0, -10, 10, 0, -6.4962, 6.94, 0, -6.4962, 6.94, 0, -10, 10, 0, -10, 3.6889, 0, -6.4962, 6.94, 0, -10, 6.94, 0, -6.4962, 3.6889, 0, -6.4962, 3.6889, 0, -10, 6.94, 0, -10, -3.716, 0, -6.4962, 3.6889, 0, -10, 3.6889, 0, -6.4962, -3.716, 0, -6.4962, -3.716, 0, -10, 3.6889, 0, -10, -3.716, 0, 9.9997, 3.6889, 0, 7.5625, 3.6889, 0, 9.9997, -3.716, 0, 9.9997, -3.716, 0, 7.5625, 3.6889, 0, 7.5625, 3.6889, 0, 9.9997, 6.94, 0, 7.5625, 6.94, 0, 9.9997, 3.6889, 0, 9.9997, 3.6889, 0, 7.5625, 6.94, 0, 7.5625, 6.94, 0, 9.9997, 10, 0, 7.5625, 10, 0, 9.9997, 6.94, 0, 9.9997, 6.94, 0, 7.5625, 10, 0, 7.5625, -3.716, 0, 7.5625, 3.6889, 0, 4.0151, 3.6889, 0, 7.5625, -3.716, 0, 7.5625, -3.716, 0, 4.0151, 3.6889, 0, 4.0151, -3.716, 0, 4.0151, 3.6889, 0, -2.9924, 3.6889, 0, 4.0151, -3.716, 0, 4.0151, -3.716, 0, -2.9924, 3.6889, 0, -2.9924, 6.94, 0, 7.5625, 10, 0, 4.0151, 10, 0, 7.5625, 6.94, 0, 7.5625, 6.94, 0, 4.0151, 10, 0, 4.0151, 3.6889, 0, 4.0151, 6.94, 0, -2.9924, 6.94, 0, 4.0151, 3.6889, 0, 4.0151, 3.6889, 0, -2.9924, 6.94, 0, -2.9924, 6.94, 0, 4.0151, 10, 0, -2.9924, 10, 0, 4.0151, 6.94, 0, 4.0151, 6.94, 0, -2.9924, 10, 0, -2.9924, -3.716, 0, -2.9924, 3.6889, 0, -6.4962, 3.6889, 0, -2.9924, -3.716, 0, -2.9924, -3.716, 0, -6.4962, 3.6889, 0, -6.4962, 6.94, 0, -2.9924, 10, 0, -6.4962, 10, 0, -2.9924, 6.94, 0, -2.9924, 6.94, 0, -6.4962, 10, 0, -6.4962, -7.1948, 0, -2.9924, -3.716, 0, -6.4962, -3.716, 0, -2.9924, -7.1948, 0, -2.9924, -7.1948, 0, -6.4962, -3.716, 0, -6.4962, -7.1948, 0, 4.0151, -3.716, 0, -2.9924, -3.716, 0, 4.0151, -7.1948, 0, 4.0151, -7.1948, 0, -2.9924, -3.716, 0, -2.9924, -7.1948, 0, 9.9997, -3.716, 0, 7.5625, -3.716, 0, 9.9997, -7.1948, 0, 9.9997, -7.1948, 0, 7.5625, -3.716, 0, 7.5625, -7.1948, 0, -6.4962, -3.716, 0, -10, -3.716, 0, -6.4962, -7.1948, 0, -6.4962, -7.1948, 0, -10, -3.716, 0, -10, -10, 0, -6.4962, -7.1948, 0, -10, -7.1948, 0, -6.4962, -10, 0, -6.4962, -10, 0, -10, -7.1948, 0, -10, -10, 0, 9.9997, -7.1948, 0, 7.5625, -7.1948, 0, 9.9997, -10, 0, 9.9997, -10, 0, 7.5625, -7.1948, 0, 7.5625, -10, 0, 7.5625, -7.1948, 0, 4.0151, -7.1948, 0, 7.5625, -10, 0, 7.5625, -10, 0, 4.0151, -7.1948, 0, 4.0151, -10, 0, 4.0151, -7.1948, 0, -2.9924, -7.1948, 0, 4.0151, -10, 0, 4.0151, -10, 0, -2.9924, -7.1948, 0, -2.9924, -10, 0, -2.9924, -7.1948, 0, -6.4962, -7.1948, 0, -2.9924, -10, 0, -2.9924, -10, 0, -6.4962, -7.1948, 0, -6.4962, 3.6889, 0, -2.9924, 6.94, 0, -6.4962, 6.94, 0, -2.9924, 3.6889, 0, -2.9924, 3.6889, 0, -6.4962, 6.94, 0, -6.4962, -7.1948, 0, 7.5625, -3.716, 0, 4.0151, -3.716, 0, 7.5625, -7.1948, 0, 7.5625, -7.1948, 0, 4.0151, -3.716, 0, 4.0151)
+backface_collision = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kr3dn"]
+height = 0.5
+radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dup03"]
+albedo_color = Color(0.921569, 0, 0, 1)
+roughness_texture = ExtResource("7_qilea")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("6_tv0s8")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7gphh"]
+material = SubResource("StandardMaterial3D_dup03")
+height = 0.5
 
 [node name="Arena" type="Node3D"]
 
@@ -61,6 +81,25 @@ mesh = SubResource("ArrayMesh_fuwo2")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane"]
+disable_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5dxpp")
+
+[node name="Pit2" parent="." instance=ExtResource("5_byp4q")]
+
+[node name="PitButton" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.593362, -9.29733)
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PitButton"]
+shape = SubResource("CylinderShape3D_kr3dn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PitButton"]
+mesh = SubResource("CylinderMesh_7gphh")
+
+[connection signal="body_entered" from="PitButton" to="Pit2" method="LowerLid"]
+
+[editable path="Pit2"]

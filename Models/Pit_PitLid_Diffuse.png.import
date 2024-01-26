@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rja55y0aatbh"
-path.s3tc="res://.godot/imported/Wood_Diffuse.png-b6d7b7ff06affebc2ddd75f1cf5d4d1a.s3tc.ctex"
+uid="uid://bwka2mv7nga83"
+path.s3tc="res://.godot/imported/Pit_PitLid_Diffuse.png-3515fcf9115f4c8b9513ac8a40cd7409.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Textures/Wood_Diffuse.png"
-dest_files=["res://.godot/imported/Wood_Diffuse.png-b6d7b7ff06affebc2ddd75f1cf5d4d1a.s3tc.ctex"]
+source_file="res://Models/Pit_PitLid_Diffuse.png"
+dest_files=["res://.godot/imported/Pit_PitLid_Diffuse.png-3515fcf9115f4c8b9513ac8a40cd7409.s3tc.ctex"]
 
 [params]
 

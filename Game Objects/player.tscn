@@ -8,6 +8,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.429234, 0)
 collision_layer = 2
 collision_mask = 7
 mass = 20.0
+continuous_cd = true
 max_contacts_reported = 2
 contact_monitor = true
 script = ExtResource("1_stilw")
@@ -20,7 +21,10 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.255
 wheel_rest_length = 0.1
 suspension_travel = 0.1
-suspension_stiffness = 10.0
+suspension_stiffness = 80.0
+suspension_max_force = 100.0
+damping_compression = 20.0
+damping_relaxation = 25.0
 
 [node name="Wheel" parent="FrontRight" instance=ExtResource("3_embb7")]
 
@@ -31,7 +35,10 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.255
 wheel_rest_length = 0.1
 suspension_travel = 0.1
-suspension_stiffness = 10.0
+suspension_stiffness = 80.0
+suspension_max_force = 100.0
+damping_compression = 20.0
+damping_relaxation = 25.0
 
 [node name="Wheel" parent="BackRight" instance=ExtResource("3_embb7")]
 
@@ -42,7 +49,10 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.255
 wheel_rest_length = 0.1
 suspension_travel = 0.1
-suspension_stiffness = 10.0
+suspension_stiffness = 80.0
+suspension_max_force = 100.0
+damping_compression = 20.0
+damping_relaxation = 25.0
 
 [node name="Wheel" parent="FrontLeft" instance=ExtResource("3_embb7")]
 
@@ -53,6 +63,9 @@ wheel_roll_influence = 0.0
 wheel_radius = 0.255
 wheel_rest_length = 0.1
 suspension_travel = 0.1
-suspension_stiffness = 10.0
+suspension_stiffness = 80.0
+suspension_max_force = 100.0
+damping_compression = 20.0
+damping_relaxation = 25.0
 
 [node name="Wheel" parent="BackLeft" instance=ExtResource("3_embb7")]
