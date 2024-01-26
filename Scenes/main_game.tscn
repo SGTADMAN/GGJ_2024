@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=20 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
+[ext_resource type="Script" path="res://Scenes/main_game.cs" id="1_debae"]
 [ext_resource type="Texture2D" uid="uid://dvuc1tjjxloke" path="res://Textures/Fence_Diffuse.png" id="2_7njif"]
 [ext_resource type="PackedScene" uid="uid://cy4a42adtkrao" path="res://Game Objects/player.tscn" id="2_e4qf0"]
 [ext_resource type="Texture2D" uid="uid://bee87nea46kue" path="res://Textures/Fence_Metallic.png" id="3_gq2im"]
@@ -53,7 +54,12 @@ colors = PackedColorArray(0, 100, 0, 1, 0, 100, 0, 1)
 gradient = SubResource("Gradient_xkw4o")
 width = 384
 
-[node name="MainGame" type="Node"]
+[node name="MainGame" type="Node" node_paths=PackedStringArray("playerContainer", "winScreen", "playerWinText")]
+process_mode = 3
+script = ExtResource("1_debae")
+playerContainer = NodePath("Players")
+winScreen = NodePath("GameUI/WinScreen")
+playerWinText = NodePath("GameUI/WinScreen/WinText")
 
 [node name="Arena" parent="." instance=ExtResource("1_0k3oi")]
 
@@ -109,6 +115,7 @@ mesh = SubResource("PlaneMesh_vpwpk")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.40908, 0)
 
 [node name="Players" type="Node" parent="."]
+process_mode = 1
 
 [node name="Player0" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(0.75471, 0, -0.656059, 0, 1, 0, 0.656059, 0, 0.75471, -5.02504, 0.921962, 5.72332)
@@ -129,6 +136,7 @@ environment = SubResource("Environment_nedmm")
 fov = 90.0
 script = ExtResource("3_j3i0v")
 playerContainer = NodePath("../../Players")
+minFOV = 20.0
 minDist = 200.0
 maxDist = 1000.0
 
@@ -177,3 +185,55 @@ offset_bottom = 1035.0
 value = 100.0
 texture_under = SubResource("GradientTexture2D_xm41u")
 texture_progress = SubResource("GradientTexture2D_rklo0")
+
+[node name="WinScreen" type="Control" parent="GameUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameUI/WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverText" type="Label" parent="GameUI/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -397.0
+offset_right = 136.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+
+[node name="WinText" type="Label" parent="GameUI/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = -27.5
+offset_right = 148.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Player {0} Wins!"
+
+[editable path="Arena"]
+[editable path="Arena/Pit2"]

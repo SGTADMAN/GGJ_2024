@@ -14,7 +14,8 @@ public partial class Arena_Pit : Node3D
     public void OnPitEntered(Node3D body)
     {
         //Decrease player health to 0
-        
+        player playerScript = body as player;
+        playerScript.playerHealth = 0;
     }
 
     public async void LowerLid(Node3D body)

@@ -133,3 +133,5 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PitDeathCol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0150146, 0.265381, -0.0753174)
 shape = SubResource("BoxShape3D_osg6g")
+
+[connection signal="body_entered" from="PitDeathCol" to="." method="OnPitEntered"]
