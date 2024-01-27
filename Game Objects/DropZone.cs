@@ -3,7 +3,7 @@ using System;
 
 public partial class DropZone : Area3D
 {
-	public enum DropObjects { Cube}
+	public enum DropObjects { Cube, Anvil}
 	[Export]
 	public float dropTime { get; set; } = 3f;
     bool playerIn;
@@ -49,7 +49,6 @@ public partial class DropZone : Area3D
             RigidBody3D obj = (RigidBody3D)GD.Load<PackedScene>(model_string).Instantiate();
             obj.Position = spawnPoint.Position;
             AddChild(obj);
-            GD.Print("Spawning " + obj.Name.ToString() + " @ Position: " + obj.Position.ToString());
             timer = dropTime;
         }
     }

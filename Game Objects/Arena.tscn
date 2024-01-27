@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://24uiw07btwox"]
+[gd_scene load_steps=18 format=3 uid="uid://24uiw07btwox"]
 
 [ext_resource type="Texture2D" uid="uid://d0d2ucy5l2jaf" path="res://Models/Arena_Arena_Diffuse.png" id="1_pojmp"]
 [ext_resource type="Texture2D" uid="uid://djpjjsakke0gw" path="res://Textures/Arena_Metallic.png" id="2_o04an"]
@@ -78,6 +78,9 @@ height = 0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_2xlkx"]
 size = Vector3(3.46045, 1.30414, 3.51404)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqcgy"]
+size = Vector3(3.67828, 1.82739, 3.7276)
+
 [node name="Arena" type="Node3D"]
 
 [node name="Plane" type="MeshInstance3D" parent="."]
@@ -117,6 +120,14 @@ shape = SubResource("BoxShape3D_2xlkx")
 
 [node name="DropPoint" type="Node3D" parent="DropZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47153, -4.76837e-07, -4.74407)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00863647, -0.930786, 0.00546265)
+shape = SubResource("BoxShape3D_uqcgy")
 
 [connection signal="body_entered" from="PitButton" to="Pit2" method="LowerLid"]
 [connection signal="body_entered" from="DropZone" to="DropZone" method="BodyEntered"]

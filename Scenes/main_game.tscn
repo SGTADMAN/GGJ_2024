@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=23 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
 [ext_resource type="Script" path="res://Scenes/main_game.cs" id="1_debae"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ckxpsmkeyke6y" path="res://Textures/Fence_Normal.png" id="4_y4k40"]
 [ext_resource type="Texture2D" uid="uid://qpdd2jtvxmvc" path="res://Textures/Fence_Roughness.png" id="5_kfwdr"]
 [ext_resource type="Script" path="res://Scenes/HealthBars.cs" id="9_3kuua"]
-[ext_resource type="PackedScene" uid="uid://cjsx0cnlugv2o" path="res://Alex Scenes/A_Player.tscn" id="11_m1s65"]
+[ext_resource type="PackedScene" uid="uid://cwmtha4ksywpd" path="res://Game Objects/player_select.tscn" id="11_gwvao"]
+[ext_resource type="Script" path="res://Scenes/MainMenu.cs" id="11_mkl8m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwqc2"]
 size = Vector3(20, 5, 1)
@@ -54,6 +55,9 @@ colors = PackedColorArray(0, 100, 0, 1, 0, 100, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rklo0"]
 gradient = SubResource("Gradient_xkw4o")
 width = 384
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8nxg"]
+bg_color = Color(0.239216, 0.172549, 0.0823529, 1)
 
 [node name="MainGame" type="Node" node_paths=PackedStringArray("playerContainer", "winScreen", "playerWinText")]
 process_mode = 3
@@ -115,22 +119,17 @@ mesh = SubResource("PlaneMesh_vpwpk")
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.40908, 0)
 
-[node name="Player" parent="." instance=ExtResource("11_m1s65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487159, 0)
-model = 3
-activate_input = true
-weapon1 = 1
-
 [node name="Players" type="Node" parent="."]
 process_mode = 1
 
 [node name="Player0" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(0.75471, 0, -0.656059, 0, 1, 0, 0.656059, 0, 0.75471, -5.02504, 0.921962, 5.72332)
+model = 2
 
 [node name="Player1" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(-0.608761, 0, 0.793353, 0, 1, 0, -0.793353, 0, -0.608761, 5.25848, 0.710281, -4.27473)
 playerNo = 1
-model = 1
+model = 3
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.630676, 0.776046, 0, -0.776046, 0.630676, 0, 7, 10)
@@ -241,5 +240,164 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Player {0} Wins!"
 
-[editable path="Arena"]
-[editable path="Arena/Pit2"]
+[node name="GameOverText2" type="Label" parent="GameUI/WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 92.0
+offset_right = 136.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Press Enter Or Start To Go Back To Character Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="Control" parent="." node_paths=PackedStringArray("playerContainer", "player1CheckBox", "player2CheckBox", "player_Selects", "mainGameScript")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_mkl8m")
+playerContainer = NodePath("../Players")
+player1CheckBox = NodePath("Player1Stuff/Player1Check")
+player2CheckBox = NodePath("Player1Stuff2/Player1Check2")
+player_Selects = [NodePath("PlayerSelect"), NodePath("PlayerSelect2")]
+mainGameScript = NodePath("..")
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8nxg")
+
+[node name="PlayerSelect" parent="MainMenu" instance=ExtResource("11_gwvao")]
+layout_mode = 1
+
+[node name="PlayerSelect2" parent="MainMenu" instance=ExtResource("11_gwvao")]
+layout_mode = 1
+offset_left = 990.0
+offset_right = 1980.0
+playerNo = 1
+
+[node name="Player1Stuff" type="Control" parent="MainMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1CharText" type="Label" parent="MainMenu/Player1Stuff"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 378.0
+offset_right = 770.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 30
+text = "<A/Left D-Pad | Right D-Pad/D>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player1WeaponText" type="Label" parent="MainMenu/Player1Stuff"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 730.0
+offset_right = 770.0
+offset_bottom = 862.0
+theme_override_font_sizes/font_size = 30
+text = "<W/Up D-Pad | Down D-Pad/S>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player1Start" type="Label" parent="MainMenu/Player1Stuff"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 840.0
+offset_right = 646.0
+offset_bottom = 972.0
+theme_override_font_sizes/font_size = 30
+text = "Press Tab if playing on same keyboard, or START for controller"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player1Check" type="CheckBox" parent="MainMenu/Player1Stuff"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 895.0
+offset_right = 282.0
+offset_bottom = 919.0
+button_mask = 0
+expand_icon = true
+
+[node name="Player1Stuff2" type="Control" parent="MainMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1Start2" type="Label" parent="MainMenu/Player1Stuff2"]
+layout_mode = 0
+offset_left = 1324.0
+offset_top = 840.0
+offset_right = 1649.0
+offset_bottom = 972.0
+theme_override_font_sizes/font_size = 30
+text = "Press Enter if playing on same keyboard, or START for controller"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player1Check2" type="CheckBox" parent="MainMenu/Player1Stuff2"]
+layout_mode = 0
+offset_left = 1262.0
+offset_top = 895.0
+offset_right = 1286.0
+offset_bottom = 919.0
+button_mask = 0
+expand_icon = true
+
+[node name="Player1CharText2" type="Label" parent="MainMenu/Player1Stuff2"]
+layout_mode = 0
+offset_left = 1177.0
+offset_top = 378.0
+offset_right = 1922.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 30
+text = "<Left Arrow/Left D-Pad | Right D-Pad/Right Arrow>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player1WeaponText2" type="Label" parent="MainMenu/Player1Stuff2"]
+layout_mode = 0
+offset_left = 1187.0
+offset_top = 728.0
+offset_right = 1920.0
+offset_bottom = 860.0
+theme_override_font_sizes/font_size = 30
+text = "<Up Arrow/Up D-Pad | Down D-Pad/Down Arrow>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ControlsDisclaimer" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 996.0
+offset_right = 1810.0
+offset_bottom = 1074.0
+theme_override_font_sizes/font_size = 30
+text = "For 2 player, use WASD & arrow keys, or use two controllers. You cannot use both controller and keyboard."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

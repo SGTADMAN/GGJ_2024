@@ -109,47 +109,47 @@ blend_shape_mode = 0
 points = PackedVector3Array(1.57583, 2, 0.999979, 1.57583, -5.96046e-08, 0.999979, 1.57583, 2, -1, -1.57582, 2, 0.999979, 1.57583, -5.96046e-08, -1, -1.57582, -5.96046e-08, 0.999979, -1.57582, 2, -1, -1.57582, -5.96046e-08, -1)
 
 [node name="CardboardBox" type="Node3D"]
-transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.3, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7, 0)
 
 [node name="Box" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 mesh = SubResource("ArrayMesh_lh38s")
 skeleton = NodePath("")
 
-[node name="BackFlap" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0859655, -0.996298, 0, 0.996298, -0.0859655, 0, 0, 0, 1, -1.54431, 1, 0)
+[node name="BackFlap" type="MeshInstance3D" parent="Box"]
+transform = Transform3D(-0.0859655, -0.996298, 0, 0.996298, -0.0859655, 0, 0, 0, 1, -1.54431, 2, 0)
 mesh = SubResource("ArrayMesh_848vo")
 skeleton = NodePath("")
 
-[node name="FrontFlap" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.306786, 0.951779, 0, -0.951779, -0.306786, 0, 0, 0, 1, 1.54431, 1, 0)
+[node name="FrontFlap" type="MeshInstance3D" parent="Box"]
+transform = Transform3D(-0.306786, 0.951779, 0, -0.951779, -0.306786, 0, 0, 0, 1, 1.54431, 2, 0)
 mesh = SubResource("ArrayMesh_iah18")
 skeleton = NodePath("")
 
-[node name="LeftFlap" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.465307, 0.885149, 0, -0.885149, -0.465307, 0, 1, -0.98)
+[node name="LeftFlap" type="MeshInstance3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, -0.465307, 0.885149, 0, -0.885149, -0.465307, 0, 2, -0.98)
 mesh = SubResource("ArrayMesh_vfbpl")
 skeleton = NodePath("")
 
-[node name="RightFlap" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.195829, -0.980638, 0, 0.980638, -0.195829, 0, 1, 0.98)
+[node name="RightFlap" type="MeshInstance3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, -0.195829, -0.980638, 0, 0.980638, -0.195829, 0, 2, 0.98)
 mesh = SubResource("ArrayMesh_fbdqi")
 skeleton = NodePath("")
 
 [node name="WeaponPlacements" type="Node3D" parent="."]
 
 [node name="WeaponOne" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.6, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.792375, -0.590347, -3.53024e-08)
 
 [node name="WeaponTwo" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -1)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.19142e-08, -0.59, -0.498662)
 
 [node name="WeaponThree" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, -0.59, 0.499)
 
 [node name="WeaponFour" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.792, -0.59, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 shape = SubResource("ConvexPolygonShape3D_rbagt")

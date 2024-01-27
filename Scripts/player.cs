@@ -10,19 +10,29 @@ public partial class player : VehicleBody3D
     public float speed { get; set; } = 200;
     [Export]
     public float turnSpeed { get; set; } = 20;
-    public enum modelType {CheeseWheel, toilet, RiggedDude, cardboard_box }
+    public enum modelType {CheeseWheel, toilet, RiggedDude, cardboard_box}
+    public enum weaponType {Knife, Rake}
     [Export]
     public modelType model { get; set; }
+    [Export]
+    public weaponType weapon { get; set; }
 
     public float playerHealth = 100f;
+    Node3D weaponsContainer;
 
-    public override void _Ready()
+    public void SetupModelAndWeapon(int inBody, int inWeapon)
     {
+        model = (modelType)inBody;
+        weapon = (weaponType)inWeapon;
         var model_string = "res://Game Objects/" + model.ToString() + ".tscn";
-        AddChild(GD.Load<PackedScene>(model_string).Instantiate());
+        var modelObj = GD.Load<PackedScene>(model_string);        
+        AddChild(modelObj.Instantiate());
         (GetChild(-1).GetChild(-1)).Reparent(this);
 
-        
+        for (int i = 0; i < GetChild(-2).GetNode("WeaponPlacements").GetChildCount(); i++)
+        {
+            GetChild(-2).GetNode("WeaponPlacements").GetChild(i).AddChild(GD.Load<PackedScene>("res://Game Objects/Weapons/"+ weapon.ToString() +".tscn").Instantiate());
+        }
     }
     public override void _PhysicsProcess(double delta)
     {

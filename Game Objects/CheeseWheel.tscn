@@ -69,16 +69,16 @@ blend_shape_mode = 0
 points = PackedVector3Array(-1, -0.1, -1, -1, 0.1, -1, 1, -0.1, -1, -1, -0.1, 0.999979, -1, 0.1, 0.999979, 1, 0.1, -1, 1, -0.1, 0.999979, 1, 0.1, 0.999979, 1, 0.7, 0, 0, 0.7, 0, -1, 0.7, 0, 0, 0.7, 0.55, 0, 0.7, -0.55)
 
 [node name="CheeseWheel2" type="Node3D"]
-transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.05, 0)
 
 [node name="CheeseWheel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.1, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_5uawy")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.9, 0, 0.05, 0)
 gi_mode = 0
 mesh = SubResource("ArrayMesh_c2vnc")
 skeleton = NodePath("")
@@ -86,17 +86,14 @@ skeleton = NodePath("")
 [node name="WeaponPlacements" type="Node3D" parent="."]
 
 [node name="WeaponOne" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 0.6, 1)
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 1.38248e-08, 0.0891221, 0.908442)
 
 [node name="WeaponTwo" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0.6, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.525865, 0.2, 7.15924e-08)
 
 [node name="WeaponThree" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1, 0.6, 0)
-
-[node name="WeaponFour" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.78181e-08, 0.6, -1)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.526, 0.2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.9, 0, 0.05, 0)
 shape = SubResource("ConvexPolygonShape3D_6tnfs")

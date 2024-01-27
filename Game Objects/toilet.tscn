@@ -44,16 +44,7 @@ skeleton = NodePath("../..")
 [node name="WeaponPlacements" type="Node3D" parent="."]
 
 [node name="WeaponOne" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.5, 0.6, 0)
-
-[node name="WeaponTwo" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.6, -0.38)
-
-[node name="WeaponThree" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0.6, 0.38)
-
-[node name="WeaponFour" type="Node3D" parent="WeaponPlacements"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.627627, -0.051016, 5.57874e-09)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)

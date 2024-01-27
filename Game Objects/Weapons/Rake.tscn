@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx3rnbmiytb1n"]
+[gd_scene load_steps=10 format=3 uid="uid://cx3rnbmiytb1n"]
 
 [ext_resource type="Texture2D" uid="uid://d0qv7gddninxn" path="res://Models/Rake_Rake_Diffuse.png" id="1_tqija"]
 [ext_resource type="Texture2D" uid="uid://0cws04cnokkl" path="res://Textures/Rake_Metallic.png" id="2_o7b27"]
 [ext_resource type="Texture2D" uid="uid://dxpocrnt671eg" path="res://Textures/Rake_Normal.png" id="3_grpls"]
 [ext_resource type="Texture2D" uid="uid://d20p2lm0hrcwv" path="res://Textures/Rake_Roughness.png" id="4_oioh4"]
+[ext_resource type="Script" path="res://Game Objects/Weapons/HurtBox.cs" id="5_5eant"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvaij"]
 resource_name = "RakeTextured"
@@ -73,9 +74,25 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_110yx")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhe4a"]
+size = Vector3(0.334717, 0.0844116, 0.168793)
+
 [node name="Rake" type="Node3D"]
 
 [node name="Rake" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
 mesh = SubResource("ArrayMesh_x6mfm")
 skeleton = NodePath("")
+
+[node name="HurtBox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015, 0)
+collision_layer = 8
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_5eant")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, -0.0052185, 0.601089)
+shape = SubResource("BoxShape3D_uhe4a")
+
+[connection signal="body_entered" from="HurtBox" to="HurtBox" method="BodyEntered"]

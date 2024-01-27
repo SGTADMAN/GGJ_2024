@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwmtha4ksywpd"]
+
+[ext_resource type="Texture2D" uid="uid://2kl2of50h5wb" path="res://Sprites/BoxCharacterImage.png" id="1_57xy4"]
+[ext_resource type="Script" path="res://Game Objects/player_select.cs" id="1_mw7dn"]
+[ext_resource type="Texture2D" uid="uid://cr0u4oy7ejccu" path="res://Sprites/KnifeWeaponImage.png" id="2_efasi"]
+
+[node name="PlayerSelect" type="Control" node_paths=PackedStringArray("characterImage", "weaponImage")]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 990.0
+grow_vertical = 2
+script = ExtResource("1_mw7dn")
+characterImagesFileNames = PackedStringArray("res://Sprites/CheeseCharacterImage.png", "res://Sprites/ToiletCharacterImage.png", "res://Sprites/RiggedDudeCharacterImage.png", "res://Sprites/BoxCharacterImage.png")
+weaponImagesFileNames = PackedStringArray("res://Sprites/KnifeWeaponImage.png", "res://Sprites/RakeWeaponImage.png")
+characterImage = NodePath("CharacterImage")
+weaponImage = NodePath("WeaponImage")
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 180.0
+offset_right = 690.0
+offset_bottom = 422.0
+texture = ExtResource("1_57xy4")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="WeaponImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 560.0
+offset_right = 690.0
+offset_bottom = 802.0
+texture = ExtResource("2_efasi")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BodySelectText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 47.0
+offset_right = 845.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 60
+text = "Select Your Body:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WeaponsSelectText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 466.0
+offset_right = 882.0
+offset_bottom = 549.0
+theme_override_font_sizes/font_size = 60
+text = "Select Your Weapon:"
+horizontal_alignment = 1
+vertical_alignment = 1

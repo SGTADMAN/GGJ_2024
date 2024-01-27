@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/player.cs" id="1_stilw"]
 [ext_resource type="PackedScene" uid="uid://xhrhi53htcp8" path="res://Game Objects/Wheel.tscn" id="3_embb7"]
 
-[node name="Player" type="VehicleBody3D"]
+[node name="Player" type="VehicleBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.429234, 0)
 collision_layer = 2
 collision_mask = 7
