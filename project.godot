@@ -13,7 +13,8 @@ config_version=5
 config/name="RobotGame"
 run/main_scene="res://Scenes/main_game.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
-boot_splash/show_image=false
+boot_splash/image="res://Sprites/TeamDingo_LogoWhite_1200x600.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [display]

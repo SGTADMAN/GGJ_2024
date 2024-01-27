@@ -53,6 +53,10 @@ public partial class main_game : Node
                 GetTree().ReloadCurrentScene();
 
             }
+            if (@event.IsActionPressed("ui_cancel"))
+            {
+                GetTree().Quit();
+            }
         }
     }
     public void SetUpGame(int p1Body, int p1Weapon, int p2body, int p2Weapon)
