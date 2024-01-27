@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=21 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
 [ext_resource type="Script" path="res://Scenes/main_game.cs" id="1_debae"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ckxpsmkeyke6y" path="res://Textures/Fence_Normal.png" id="4_y4k40"]
 [ext_resource type="Texture2D" uid="uid://qpdd2jtvxmvc" path="res://Textures/Fence_Roughness.png" id="5_kfwdr"]
 [ext_resource type="Script" path="res://Scenes/HealthBars.cs" id="9_3kuua"]
+[ext_resource type="PackedScene" uid="uid://cjsx0cnlugv2o" path="res://Alex Scenes/A_Player.tscn" id="11_m1s65"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwqc2"]
 size = Vector3(20, 5, 1)
@@ -114,12 +115,17 @@ mesh = SubResource("PlaneMesh_vpwpk")
 [node name="Light" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.40908, 0)
 
+[node name="Player" parent="." instance=ExtResource("11_m1s65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.487159, 0)
+model = 3
+activate_input = true
+weapon1 = 1
+
 [node name="Players" type="Node" parent="."]
 process_mode = 1
 
 [node name="Player0" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(0.75471, 0, -0.656059, 0, 1, 0, 0.656059, 0, 0.75471, -5.02504, 0.921962, 5.72332)
-model = 2
 
 [node name="Player1" parent="Players" instance=ExtResource("2_e4qf0")]
 transform = Transform3D(-0.608761, 0, 0.793353, 0, 1, 0, -0.793353, 0, -0.608761, 5.25848, 0.710281, -4.27473)

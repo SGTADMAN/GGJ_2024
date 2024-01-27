@@ -136,6 +136,20 @@ transform = Transform3D(1, 0, 0, 0, -0.195829, -0.980638, 0, 0.980638, -0.195829
 mesh = SubResource("ArrayMesh_fbdqi")
 skeleton = NodePath("")
 
+[node name="WeaponPlacements" type="Node3D" parent="."]
+
+[node name="WeaponOne" type="Node3D" parent="WeaponPlacements"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.6, 0, 0)
+
+[node name="WeaponTwo" type="Node3D" parent="WeaponPlacements"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -1)
+
+[node name="WeaponThree" type="Node3D" parent="WeaponPlacements"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 1)
+
+[node name="WeaponFour" type="Node3D" parent="WeaponPlacements"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6, 0, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("ConvexPolygonShape3D_rbagt")
