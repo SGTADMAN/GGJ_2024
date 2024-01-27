@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=24 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
 [ext_resource type="Script" path="res://Scenes/main_game.cs" id="1_debae"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/HealthBars.cs" id="9_3kuua"]
 [ext_resource type="PackedScene" uid="uid://cwmtha4ksywpd" path="res://Game Objects/player_select.tscn" id="11_gwvao"]
 [ext_resource type="Script" path="res://Scenes/MainMenu.cs" id="11_mkl8m"]
+[ext_resource type="AudioStream" uid="uid://dtn53gs6w3n2x" path="res://Audio/Music/omega_droid-airborne.wav" id="13_imtw8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwqc2"]
 size = Vector3(20, 5, 1)
@@ -144,6 +145,9 @@ playerContainer = NodePath("../../Players")
 minFOV = 20.0
 minDist = 200.0
 maxDist = 1000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CameraPivot/Camera3D"]
+current = true
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
@@ -402,3 +406,8 @@ text = "For 2 player, use WASD & arrow keys, or use two controllers. You cannot 
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_imtw8")
+volume_db = -5.0
+autoplay = true

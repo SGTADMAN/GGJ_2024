@@ -9,6 +9,8 @@ public partial class Arena_Pit : Node3D
     public MeshInstance3D pitLid { get; set; }
     [Export]
     public float loweringSpeed { get; set; } = 10f;
+    [Export]
+    public AudioStreamPlayer3D alarmSound { get; set; }
 
 
     public void OnPitEntered(Node3D body)
@@ -20,6 +22,7 @@ public partial class Arena_Pit : Node3D
 
     public async void LowerLid(Node3D body)
     {
+        alarmSound.Play();
         while(pitLid.Position.Y > -2.5f)
         {
             pitLid.Position -= new Vector3(0,loweringSpeed*(float)GetPhysicsProcessDeltaTime(),0);

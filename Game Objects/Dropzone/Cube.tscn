@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu78gla80d754"]
+[gd_scene load_steps=6 format=3 uid="uid://bu78gla80d754"]
 
 [ext_resource type="Script" path="res://Game Objects/Dropzone/DropzoneItem.cs" id="1_7jsay"]
+[ext_resource type="AudioStream" uid="uid://dy53aavxntgs3" path="res://Audio/SFX/bing1.wav" id="2_kkim3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_syqvn"]
 
@@ -9,11 +10,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_76ato"]
 size = Vector3(1.1, 1.1, 1.1)
 
-[node name="Cube" type="RigidBody3D" groups=["Drop"]]
+[node name="Cube" type="RigidBody3D" node_paths=PackedStringArray("soundEffect") groups=["Drop"]]
 collision_mask = 7
 mass = 5.0
 script = ExtResource("1_7jsay")
 damageAmount = 2.0
+soundEffect = NodePath("Area3D/CubeSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_syqvn")
@@ -27,5 +29,9 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_76ato")
+
+[node name="CubeSound" type="AudioStreamPlayer3D" parent="Area3D"]
+stream = ExtResource("2_kkim3")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area3D" to="." method="BodyEntered"]

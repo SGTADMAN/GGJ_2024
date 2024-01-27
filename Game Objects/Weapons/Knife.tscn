@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4cbvnkk6m54k"]
+[gd_scene load_steps=11 format=3 uid="uid://c4cbvnkk6m54k"]
 
 [ext_resource type="Texture2D" uid="uid://dn0ibqp8w11wc" path="res://Models/Knife_Knife_Diffuse.png" id="1_h1k80"]
 [ext_resource type="Texture2D" uid="uid://b1arypd8j452w" path="res://Textures/Knife_Metallic.png" id="2_8npg0"]
 [ext_resource type="Texture2D" uid="uid://do34a72k6qcic" path="res://Textures/Knife_Normal.png" id="3_weft6"]
 [ext_resource type="Texture2D" uid="uid://c5hujdjj87tcb" path="res://Textures/Knife_Roughness.png" id="4_k0fhn"]
 [ext_resource type="Script" path="res://Game Objects/Weapons/HurtBox.cs" id="5_deg7b"]
+[ext_resource type="AudioStream" uid="uid://beok6rp450rcg" path="res://Audio/SFX/metal_button_press1.wav" id="6_0m6ny"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ukp1"]
 resource_name = "KnifeTextured"
@@ -85,14 +86,18 @@ transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, -1.3234
 mesh = SubResource("ArrayMesh_h5muw")
 skeleton = NodePath("")
 
-[node name="HurtBox" type="Area3D" parent="."]
+[node name="HurtBox" type="Area3D" parent="." node_paths=PackedStringArray("soundEffect")]
 collision_layer = 8
 collision_mask = 2
 monitorable = false
 script = ExtResource("5_deg7b")
+soundEffect = NodePath("KnifeSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0122986, 4.96176)
 shape = SubResource("BoxShape3D_wmiqh")
+
+[node name="KnifeSound" type="AudioStreamPlayer3D" parent="HurtBox"]
+stream = ExtResource("6_0m6ny")
 
 [connection signal="body_entered" from="HurtBox" to="HurtBox" method="BodyEntered"]

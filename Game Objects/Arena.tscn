@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://24uiw07btwox"]
+[gd_scene load_steps=19 format=3 uid="uid://24uiw07btwox"]
 
 [ext_resource type="Texture2D" uid="uid://d0d2ucy5l2jaf" path="res://Models/Arena_Arena_Diffuse.png" id="1_pojmp"]
 [ext_resource type="Texture2D" uid="uid://djpjjsakke0gw" path="res://Textures/Arena_Metallic.png" id="2_o04an"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cayt5a0qdys6x" path="res://Game Objects/Arena_Pit.tscn" id="5_byp4q"]
 [ext_resource type="Texture2D" uid="uid://badcaslr8vkxg" path="res://Textures/PitLid_Normal.png" id="6_tv0s8"]
 [ext_resource type="Texture2D" uid="uid://qhhcaf315dgl" path="res://Textures/PitLid_Roughness.png" id="7_qilea"]
+[ext_resource type="AudioStream" uid="uid://cfdhvsqb53a62" path="res://Audio/SFX/alarm.ogg" id="8_faphc"]
 [ext_resource type="Script" path="res://Game Objects/DropZone.cs" id="8_uggge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp6xw"]
@@ -93,7 +94,8 @@ disable_mode = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5dxpp")
 
-[node name="Pit2" parent="." instance=ExtResource("5_byp4q")]
+[node name="Pit2" parent="." node_paths=PackedStringArray("alarmSound") instance=ExtResource("5_byp4q")]
+alarmSound = NodePath("../PitButton/AlarmSound")
 
 [node name="PitButton" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.593362, -9.29733)
@@ -106,6 +108,10 @@ shape = SubResource("CylinderShape3D_kr3dn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PitButton"]
 mesh = SubResource("CylinderMesh_7gphh")
+
+[node name="AlarmSound" type="AudioStreamPlayer3D" parent="PitButton"]
+stream = ExtResource("8_faphc")
+volume_db = -10.0
 
 [node name="DropZone" type="Area3D" parent="." node_paths=PackedStringArray("spawnPoint")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57273, -4.76837e-07, -4.72881)

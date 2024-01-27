@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1u5j3s2rbk7l"]
+[gd_scene load_steps=12 format=3 uid="uid://c1u5j3s2rbk7l"]
 
 [ext_resource type="Script" path="res://Game Objects/Dropzone/DropzoneItem.cs" id="1_mcp8k"]
 [ext_resource type="Texture2D" uid="uid://bue8477qs3itu" path="res://Models/Anvil_Anvil_Diffuse.png" id="2_2nytl"]
 [ext_resource type="Texture2D" uid="uid://c5ma64r7w13no" path="res://Textures/Anvil_Metallic.png" id="3_k5ral"]
 [ext_resource type="Texture2D" uid="uid://c0esq2xaug5er" path="res://Textures/Anvil_Normal.png" id="4_retrl"]
 [ext_resource type="Texture2D" uid="uid://bdrax85ubyiw" path="res://Textures/Anvil_Roughness.png" id="5_uguwc"]
+[ext_resource type="AudioStream" uid="uid://cymjgj2ai53jk" path="res://Audio/SFX/bong1.wav" id="6_ltlia"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fth8x"]
 points = PackedVector3Array(-2.05574, 0.849997, -0.872205, 1.12786, 1.27111, 0.859111, 2.23383, 1.21398, 0.18545, 0.997923, -0.693733, 1, 0.9999, -0.695782, -0.972582, -0.972132, -0.693733, 1, -2.15252, 1.28817, 0.942493, 0.997826, 1.2767, -0.970433, -1.0001, -0.720774, -0.997574, -2.15252, 1.28817, -0.913026, 0.997826, 1.2767, 0.9999, 2.15428, 0.917031, -0.149773, -2.05574, 0.849997, 0.901672, 2.25278, 1.22198, -0.157462, -1.84832, 1.27312, -0.966856, -1.1032, 1.27277, 0.995971, 2.15428, 0.917031, 0.17924, 2.07602, 0.866459, -0.289628, 1.12786, 1.27111, -0.897148, -1.81675, 0.65756, -0.950504, 1.87171, 1.20396, -0.424497)
@@ -56,10 +57,11 @@ shadow_mesh = SubResource("ArrayMesh_4lnlj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wckbu"]
 size = Vector3(1.1, 1.1, 1.1)
 
-[node name="Anvil" type="RigidBody3D"]
+[node name="Anvil" type="RigidBody3D" node_paths=PackedStringArray("soundEffect")]
 mass = 40.0
 script = ExtResource("1_mcp8k")
 damageAmount = 50.0
+soundEffect = NodePath("Area3D/AnvilSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.15, 0, 0, 0, 0.1, 0, -0.0415141, 0)
@@ -76,5 +78,8 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_wckbu")
+
+[node name="AnvilSound" type="AudioStreamPlayer3D" parent="Area3D"]
+stream = ExtResource("6_ltlia")
 
 [connection signal="body_entered" from="Area3D" to="." method="BodyEntered"]
