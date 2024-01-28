@@ -10,6 +10,8 @@ public partial class DropZone : Area3D
     float timer;
     [Export]
     public Node3D spawnPoint { get; set; }
+    [Export]
+    public AudioStreamPlayer3D dropSound { get; set; }
 
     public override void _Ready()
     {
@@ -49,6 +51,7 @@ public partial class DropZone : Area3D
             RigidBody3D obj = (RigidBody3D)GD.Load<PackedScene>(model_string).Instantiate();
             obj.Position = spawnPoint.Position;
             AddChild(obj);
+            dropSound.Play();
             timer = dropTime;
         }
     }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2xjhplsxcye"]
+[gd_scene load_steps=26 format=3 uid="uid://d2xjhplsxcye"]
 
 [ext_resource type="PackedScene" uid="uid://24uiw07btwox" path="res://Game Objects/Arena.tscn" id="1_0k3oi"]
 [ext_resource type="Script" path="res://Scenes/main_game.cs" id="1_debae"]
@@ -35,14 +35,6 @@ size = Vector2(20, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqgjn"]
 size = Vector3(1, 5, 20)
 
-[sub_resource type="Environment" id="Environment_nedmm"]
-ambient_light_color = Color(1, 0.647059, 0.596078, 1)
-ambient_light_energy = 2.78
-ssr_enabled = true
-ssao_enabled = true
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-
 [sub_resource type="Gradient" id="Gradient_mtn6f"]
 colors = PackedColorArray(100, 0, 0, 1, 100, 0, 0, 1)
 
@@ -59,6 +51,21 @@ width = 384
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8nxg"]
 bg_color = Color(0.239216, 0.172549, 0.0823529, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_loxlk"]
+sky_top_color = Color(0.0156863, 0.219608, 0.286275, 1)
+sky_horizon_color = Color(0.0745098, 0.0784314, 0.0823529, 1)
+sky_curve = 0.172305
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+ground_curve = 0.0254912
+
+[sub_resource type="Sky" id="Sky_4jpxx"]
+sky_material = SubResource("ProceduralSkyMaterial_loxlk")
+
+[sub_resource type="Environment" id="Environment_as1ih"]
+background_mode = 2
+sky = SubResource("Sky_4jpxx")
 
 [node name="MainGame" type="Node" node_paths=PackedStringArray("playerContainer", "winScreen", "playerWinText")]
 process_mode = 3
@@ -138,7 +145,6 @@ transform = Transform3D(1, 0, 0, 0, 0.630676, 0.776046, 0, -0.776046, 0.630676, 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" node_paths=PackedStringArray("playerContainer")]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 keep_aspect = 0
-environment = SubResource("Environment_nedmm")
 fov = 90.0
 script = ExtResource("3_j3i0v")
 playerContainer = NodePath("../../Players")
@@ -273,7 +279,7 @@ grow_vertical = 2
 script = ExtResource("11_mkl8m")
 playerContainer = NodePath("../Players")
 player1CheckBox = NodePath("Player1Stuff/Player1Check")
-player2CheckBox = NodePath("Player1Stuff2/Player1Check2")
+player2CheckBox = NodePath("Player2Stuff/Player2Check")
 player_Selects = [NodePath("PlayerSelect"), NodePath("PlayerSelect2")]
 mainGameScript = NodePath("..")
 
@@ -285,6 +291,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d8nxg")
+
+[node name="Title" type="Label" parent="MainMenu"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 14.0
+offset_right = 1810.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 30
+text = "RandoRoboRekt - Global Game Jam 2024
+Made by Team Dingo: Adam Lutton & Alex Hall."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="PlayerSelect" parent="MainMenu" instance=ExtResource("11_gwvao")]
 layout_mode = 1
@@ -299,6 +318,19 @@ playerNo = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Player1Text" type="Label" parent="MainMenu/Player1Stuff"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 780.0
+offset_right = 566.0
+offset_bottom = 912.0
+rotation = -1.57079
+theme_override_font_sizes/font_size = 60
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Player1CharText" type="Label" parent="MainMenu/Player1Stuff"]
 layout_mode = 0
@@ -345,12 +377,26 @@ offset_bottom = 919.0
 button_mask = 0
 expand_icon = true
 
-[node name="Player1Stuff2" type="Control" parent="MainMenu"]
+[node name="Player2Stuff" type="Control" parent="MainMenu"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Player1Start2" type="Label" parent="MainMenu/Player1Stuff2"]
+[node name="Player2Text" type="Label" parent="MainMenu/Player2Stuff"]
+layout_mode = 0
+offset_left = 1021.0
+offset_top = 780.0
+offset_right = 1508.0
+offset_bottom = 912.0
+rotation = -1.57079
+theme_override_font_sizes/font_size = 60
+text = "Player 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Player2Start" type="Label" parent="MainMenu/Player2Stuff"]
 layout_mode = 0
 offset_left = 1324.0
 offset_top = 840.0
@@ -362,7 +408,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Player1Check2" type="CheckBox" parent="MainMenu/Player1Stuff2"]
+[node name="Player2Check" type="CheckBox" parent="MainMenu/Player2Stuff"]
 layout_mode = 0
 offset_left = 1262.0
 offset_top = 895.0
@@ -371,7 +417,7 @@ offset_bottom = 919.0
 button_mask = 0
 expand_icon = true
 
-[node name="Player1CharText2" type="Label" parent="MainMenu/Player1Stuff2"]
+[node name="Player2CharText" type="Label" parent="MainMenu/Player2Stuff"]
 layout_mode = 0
 offset_left = 1177.0
 offset_top = 378.0
@@ -383,7 +429,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Player1WeaponText2" type="Label" parent="MainMenu/Player1Stuff2"]
+[node name="Player2WeaponText" type="Label" parent="MainMenu/Player2Stuff"]
 layout_mode = 0
 offset_left = 1187.0
 offset_top = 728.0
@@ -411,3 +457,6 @@ autowrap_mode = 3
 stream = ExtResource("13_imtw8")
 volume_db = -5.0
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_as1ih")

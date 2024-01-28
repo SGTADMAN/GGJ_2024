@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://24uiw07btwox"]
+[gd_scene load_steps=20 format=3 uid="uid://24uiw07btwox"]
 
 [ext_resource type="Texture2D" uid="uid://d0d2ucy5l2jaf" path="res://Models/Arena_Arena_Diffuse.png" id="1_pojmp"]
 [ext_resource type="Texture2D" uid="uid://djpjjsakke0gw" path="res://Textures/Arena_Metallic.png" id="2_o04an"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qhhcaf315dgl" path="res://Textures/PitLid_Roughness.png" id="7_qilea"]
 [ext_resource type="AudioStream" uid="uid://cfdhvsqb53a62" path="res://Audio/SFX/alarm.ogg" id="8_faphc"]
 [ext_resource type="Script" path="res://Game Objects/DropZone.cs" id="8_uggge"]
+[ext_resource type="AudioStream" uid="uid://cgj4tpl3bn8a6" path="res://Audio/SFX/dropbomb-2seconds.mp3" id="10_fjhy2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp6xw"]
 resource_name = "ArenaTextured"
@@ -113,12 +114,13 @@ mesh = SubResource("CylinderMesh_7gphh")
 stream = ExtResource("8_faphc")
 volume_db = -10.0
 
-[node name="DropZone" type="Area3D" parent="." node_paths=PackedStringArray("spawnPoint")]
+[node name="DropZone" type="Area3D" parent="." node_paths=PackedStringArray("spawnPoint", "dropSound")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57273, -4.76837e-07, -4.72881)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("8_uggge")
 spawnPoint = NodePath("DropPoint")
+dropSound = NodePath("DropSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127197, 0.607574, -0.017395)
@@ -126,6 +128,11 @@ shape = SubResource("BoxShape3D_2xlkx")
 
 [node name="DropPoint" type="Node3D" parent="DropZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="DropSound" type="AudioStreamPlayer3D" parent="DropZone"]
+stream = ExtResource("10_fjhy2")
+volume_db = -5.0
+pitch_scale = 0.8
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47153, -4.76837e-07, -4.74407)

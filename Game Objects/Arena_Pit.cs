@@ -11,6 +11,7 @@ public partial class Arena_Pit : Node3D
     public float loweringSpeed { get; set; } = 10f;
     [Export]
     public AudioStreamPlayer3D alarmSound { get; set; }
+    bool lowered= false;
 
 
     public void OnPitEntered(Node3D body)
@@ -22,12 +23,16 @@ public partial class Arena_Pit : Node3D
 
     public async void LowerLid(Node3D body)
     {
-        alarmSound.Play();
-        while(pitLid.Position.Y > -2.5f)
+        if (!lowered)
         {
-            pitLid.Position -= new Vector3(0,loweringSpeed*(float)GetPhysicsProcessDeltaTime(),0);
-            await Task.Delay(10);
+            alarmSound.Play();
+            while (pitLid.Position.Y > -2.5f)
+            {
+                pitLid.Position -= new Vector3(0, loweringSpeed * (float)GetPhysicsProcessDeltaTime(), 0);
+                await Task.Delay(10);
+            }
+            pitLid.Position = new Vector3(0, -2.5f, 0);
+            lowered = true;
         }
-        pitLid.Position = new Vector3(0, -2.5f, 0);
     }
 }
